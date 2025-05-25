@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Totito</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+  <header id="main-header">
+    <div class="header-left">
+      <img src="img/Logo.png" alt="Logo" id="player-image">
+    </div>
+    <div class="header-center">
+      <h1 id="titulo-nivel">Juguemos Totito</h1>
+    </div>
+    <div class="header-right">
+      <span id="player-name">Retador</span>
+    </div>
+  </header>
+
+  <div id="config-modal" class="modal">
+    <div class="modal-content">
+      <h2>Antes de empezar el  Juego</h2>
+      <label for="player-name-input">Cómo te llamas?</label>
+      <input type="text" id="player-name-input" placeholder="Ingresa tu nombre" />
+
+      <fieldset>
+        <legend>Elige</legend>
+        <label><input type="radio" name="symbol" value="X" checked /> X</label>
+        <label><input type="radio" name="symbol" value="O" /> O</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>¿Quién hace los honores?</legend>
+        <label><input type="radio" name="turn" value="player" checked />Tú</label>
+        <label><input type="radio" name="turn" value="ai" />Totito</label>
+      </fieldset>
+
+      <button id="start-game">Empezar a jugaaar</button>
+    </div>
+  </div>
+
+  
+  <div id="victory-modal" class="modal hidden">
+    <div class="modal-content victory">
+      <h2 id="victory-title">¡Esoooo!</h2>
+      <p id="victory-message">Le ganaste a la IA</p>
+      <button id="close-victory">Cerrar</button>
+    </div>
+  </div>
+
+  <h4>Holaaa, yo soy Totito, juguemos juntos. Espero te diviertas conmigo.</h4>
+  
+    <img src="img/asistente-de-inteligencia-artificial.gif" alt="Decoración Totito" id="imagen-decorativa">
+    
+  <main class="contenido">
+    <p id="mensaje"></p>
+
+    
+    <div id="tablero-container">
+      <div id="tablero">
+        <div class="celda" data-index="0"></div>
+        <div class="celda" data-index="1"></div>
+        <div class="celda" data-index="2"></div>
+        <div class="celda" data-index="3"></div>
+        <div class="celda" data-index="4"></div>
+        <div class="celda" data-index="5"></div>
+        <div class="celda" data-index="6"></div>
+        <div class="celda" data-index="7"></div>
+        <div class="celda" data-index="8"></div>
+      </div>
+      <div id="linea-victoria"></div>
+    </div>
+
+    <button id="reiniciar">Jugar de Nuevo</button>
+    <b></b><b></b>
+  </main>
+
+  <footer id="main-footer">
+    <strong><p>Johny Chiroy &copy; Mayo del 2025</p></strong>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

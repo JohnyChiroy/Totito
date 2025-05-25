@@ -1,0 +1,336 @@
+/* ===== Tipografía y reset básico ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+}
+/* ===== Header dividido ===== */
+#main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #049DD9;
+  color: white;
+  padding: 10px 20px;
+}
+.header-left img {
+  height: 40px; /* Ajusta según tu logo */
+}
+.header-center h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.header-right {
+  font-size: 1rem;
+}
+/* ===== Layout principal ===== */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 120px); /* Ajusta por header/footer */
+}
+
+.sidebar {
+  background-color: #049DD9;
+  width: 150px;
+  margin: 10px;
+  padding: 1rem 1rem;
+  border-radius: 0 10px 10px 0;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+h4 {
+  text-align: center;
+}
+
+/* Sidebar y separación de niveles con iconos */
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.sidebar-element {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  cursor: pointer;
+}
+.sidebar-element + hr {
+  border: none;
+  border-top: 2px solid #2d2e2e9c;
+  margin: 5px 0;
+}
+.sidebar-icon {
+  width: 24px;
+  height: 24px;
+}
+.sidebar-text {
+  font-size: 1rem;
+  color: #f3efef;
+}
+.sidebar-element:hover {
+  background-color: #30BAD9;
+}
+.sidebar-element:hover .sidebar-text {
+  color: #fff;
+}
+
+.sidebar-footer {
+  padding-top: 100px;
+}
+
+.footer-divider {
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 2px solid #2d2e2e9c;
+}
+
+.sidebar-user {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ===== Contenido central ===== */
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ===== Tablero de totito ===== */
+#tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  border-spacing: 0;
+}
+.celda {
+  width: 100px;
+  height: 100px;
+  background-color: #F2F2F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#tablero-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+/* Líneas internas horizontales */
+#tablero .celda:nth-child(n+4):nth-child(-n+6),
+#tablero .celda:nth-child(n+7):nth-child(-n+9) {
+  border-top: 5px solid #011126;
+}
+
+/* Líneas internas verticales */
+#tablero .celda:nth-child(3n+1),
+#tablero .celda:nth-child(3n+2) {
+  border-right: 5px solid #011126;
+}
+
+.celda:hover {
+  background: #A0B9D9;
+}
+
+/* Color para las X */
+.celda.x-simbolo {
+  color: #0367A6;     /* por ejemplo un azul oscuro */
+}
+
+/* Color para las O */
+.celda.o-simbolo {
+  color: #BF1120;     /* por ejemplo un marrón rojizo */
+}
+
+#linea-victoria {
+  position: absolute;
+  height: 4px;
+  background-color: #048ABF;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 2;
+  transition: width 0.5s ease, transform 0.5s ease-in;
+  transform-origin: left center;
+}
+
+/* ===== Mensaje y botón ===== */
+#mensaje {
+  font-size: 2rem;
+  color: #049DD9;
+  margin: auto;
+}
+
+#reiniciar {
+  margin: auto;
+  padding: 10px 20px;
+  background-color: #049DD9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ===== Footer ===== */
+#main-footer {
+  text-align: center;
+  padding: 10px;
+  background: #049DD9;
+  color: #fff;
+}
+
+.sidebar-header .sidebar-text {
+  font-size: 14px;
+  color: #011126;
+}
+
+/* ===== Modal (Formulario) mejorado ===== */
+/* Fondo oscuro semitransparente */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* Caja blanca centrada con estilo mejorado */
+.modal-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid #049DD9;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #048ABF;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content label {
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content input[type="text"]:focus {
+  outline: none;
+  border-color: #048ABF;
+  box-shadow: 0 0 5px rgba(4, 138, 191, 0.5);
+}
+
+.modal-content fieldset {
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  border-radius: 6px;
+  background: #f8f8f8;
+}
+
+.modal-content legend {
+  font-weight: bold;
+  color: #048ABF;
+  padding: 0 0.5rem;
+}
+
+.modal-content input[type="radio"] {
+  accent-color: #048ABF;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(90deg, #049DD9, #048ABF);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: linear-gradient(90deg, #048ABF, #0367A6);
+}
+
+.modal-content button:active {
+  transform: scale(0.98);
+}
+
+/* Oculta por defecto */
+.hidden {
+  display: none !important;
+}
+
+/* Personalización modal de victoria */
+.modal-content.victory {
+  border: 3px solid #048ABF;
+  background: #fffbea;
+  text-align: center;
+}
+.modal-content.victory h2 {
+  color: #048ABF;
+  margin-bottom: .5rem;
+}
+.modal-content.victory p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.modal-content.victory button {
+  background: #048ABF;
+  color: #FFFFFF;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#imagen-decorativa {
+  display: block;
+  margin: 20px auto;
+  max-width: 200px;
+  height: auto;
+}
